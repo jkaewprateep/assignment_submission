@@ -1,0 +1,169 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<html>
+   <head>
+      <title>Out lovely home</title>
+   </head>
+   <body>
+
+        {% comment %} {% for item in menu.menu %}
+        <p>
+            {{ item.Product_Id }}
+        </p>
+        <p>
+            {{ item.Name }}
+        </p>
+        <p>
+            {{ item.Description }}
+        </p>
+        <p>
+            {{ item.Price }}
+        </p>
+        <p>
+            {{ item.AvaliableDate }}
+        </p>
+        <p>
+            {{ item.StockQuantity }}
+        </p>
+        {% endfor %} {% endcomment %}
+
+
+
+
+
+        {% comment %} Product_Id = models.SmallIntegerField(default=0);
+        Name = models.CharField(max_length=255);
+        Title = models.CharField(max_length=255);
+        Description = models.CharField(max_length=255);
+        Price = models.DecimalField(max_digits=10, decimal_places=2);
+        # AvaliableDate = models.DateField(default=datetime.now());
+        AvaliableDate = models.DateField();
+        StockQuantity = models.DecimalField(max_digits=10, decimal_places=0);
+        Image_1 = models.CharField(max_length=512);
+        Image_2 = models.CharField(max_length=512);
+        Image_3 = models.CharField(max_length=512);
+        Promotion_Id = models.ForeignKey(Promotion, on_delete=models.PROTECT, default=1)  {% endcomment %}
+
+
+        <section>
+            <article>
+                <h1>Menu items {{ request.session.name }} </h1>
+                <span>
+                    <a href="{% url 'home' %}">Home</a> /
+                    <a href="{% url 'menu' %}">Menu</a> /
+                    <a href="{% url 'about' %}">about us</a> /
+                  </span>
+                <hr></hr>
+
+                <form action = "/menu/" method = "post", style="background-color: #E0E0E2;">{% csrf_token %}{{ form.as_p }}
+                <table>
+
+                    <tr>
+                      <th>Avaliable Date</th>
+                      <th>Avaliable Date</th>
+                      <th>Promotion</th>
+                      <th>Newst</th>
+                      <th>Avaliable only</th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <td rowspan="6">
+                        <div>
+                            <input id="AvaliableDateStart" type="date" name="AvaliableDateStart" maxlength="100" value="2023-05-01" required>
+                        </div>
+                      </td>
+                      <td rowspan="6">
+                        <div>
+                            <input id="AvaliableDateEnd" type="date" name="AvaliableDateEnd" maxlength="100" value="2023-05-31" required>
+                        </div>
+                    </td>
+                        <td rowspan="6">
+                            <input type="text" name="Promotion_search" value="Monster Randoms" required>
+                        </td>
+                        <td rowspan="6">
+                            <div>
+                                <select name="newset_on_top" id="id_newset_on_top" required>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                </select>
+                            </div>
+                        </td>
+                      <td rowspan="6">
+                        <div>
+                            <select name="avaliable_only" id="id_avaliable_only" required>
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                            </select>
+                        </div>
+                      </td>
+                      <td rowspan="6">
+                        <div>
+                            {% comment %} <form action = "" method = "post", style="background-color: #E0E0E2;">
+                                {% csrf_token %}{{ form.as_p }} 
+                                <input type="date" name="AvaliableDateStart" id="id_AvaliableDateStart" required >
+                                <button type="button" class="submit">action</button>
+                            </form> {% endcomment %}
+                            {% comment %} <form action="/menu/" method="post">{% csrf_token %}{{ form.as_p }}  {% endcomment %}
+                                {% comment %} <label for="AvaliableDateStart">Your name: </label>
+                                <input id="AvaliableDateStart" type="text" name="AvaliableDateStart" value="AvaliableDateStart"> {% endcomment %}
+                                {% comment %} <input type="hidden" name="custom" value="{{ session.username }}"> {% endcomment %}
+                                {% comment %} <input type="text" name="custom" value="{{ session.username }}"> {% endcomment %}
+                                <input type="submit" value="OK">
+                                {% comment %} <button type="button" class="cancelbtn">OK</button> {% endcomment %}
+                            {% comment %} </form> {% endcomment %}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+
+                
+
+            <h2>
+                Products matched criteria
+            </h2>    
+
+                {% for item in menu.menu %}
+
+                <table style="width:100%">
+                    {% comment %} <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr> {% endcomment %}
+                    <tr>
+                      <td style="width:11%"><span style="color:blue">{{ item.Name }}</span></td>
+                      <td style="width:11%"><span style="color:blue">{{ item.Description }}</span></td>
+                      <td style="width:11%"><span style="color:black">Avaliable On</span></td>
+                      <td style="width:11%"><span style="color:blue">{{ item.AvaliableDate }}</span></td>
+                      <td style="width:11%"><span style="color:black">Price: </span></td>
+                      <td style="width:11%"><span style="color:green">{{ item.Price }} THB</span></td>
+                      <td style="width:11%"><span style="color:black"> Promotion</span></td>
+                      <td style="width:11%"><span style="color:grey">{{ item.Promotion_Id.Promotion_Id }}</span></td>
+                      <td style="width:11%"><img src="/static/img/{{item.Image_1}}" alt="{{ item.Image_1 }}" /></td>
+
+                      {% comment %} img/echo_with_her_daily_mission_20.jpg {% endcomment %}
+                      {% comment %} http://127.0.0.1:8000/static/img/Oun_with_his_new_bed_02.jpg {% endcomment %}
+                    </tr>
+                </table>
+                {% endfor %}
+
+
+            </article>   
+        </section>
+   </body>
+</html>
+
+{% endblock %}

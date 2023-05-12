@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<html>
+   <head>
+      <title>Out lovely home</title>
+   </head>
+
+   <span>
+    <a href="{% url 'home' %}">Home</a> /
+    <a href="{% url 'menu' %}">Menu</a> /
+    <a href="{% url 'about' %}">about us</a> /
+  </span>
+
+   <body>
+        <h1 style="text-align:center;">Out lovely home</h1>
+        {% load static %}
+        <img src="{% static 'img/echo_with_her_children_20.jpg' %}">
+
+        <div class="column">
+            <p>
+                <a href="/about/">About</a>
+            </p>
+            <p>
+                <a href="/loginpage/">loginpage - user menu items list</a>
+            </p>
+            <p>
+                HTTP client need to specific Basic Authentication <username:password> in BASE64 encoding
+            </p>
+            <p>
+                Basic Authentication Username is use to query related product from promotion table
+            </p>
+            <p>
+                >   <a href="/login/">Login - provide Token after authentication</a>
+            </p>
+            <p>
+                >   <a href="/product_update/">Product update - Query / Insert / Update Products</a>
+            </p>
+            <p>
+                >   <a href="/promotions_as_view/">Promotion create - as views</a>
+            </p>
+            <p>
+                >   <a href="/promotion_update/">Promotion update - Query / Insert / Update Products</a>
+            </p>
+            <p>
+                >   <a href="/assignusersiteIDView/">Update user siteID - Query / Insert / Update users with siteID</a>
+            </p>
+            <p>
+                >   <a href="/menu_items_as_view/">Menu Items - Query / Insert / Update Products</a>
+            </p>
+            <p>
+                >   <a href="/MenuView_readupdate_as_view/">Menu Items - Filters</a>
+            </p>
+
+            <p>
+                Query Types
+            </p>
+            <p>
+                <text>1. URL http://127.0.0.1:8000/menu_items?Name=ProductName</text>
+            </p>
+            <p>
+                <text>2. URL http://127.0.0.1:8000/menu_items?Title=ProductTitle&Name=ProductName</text>
+            </p>
+            <p>
+                <text>3. URL http://127.0.0.1:8000/menu_items?Name=ProductName&Price=ProductPrice</text>
+            </p>
+            <p>
+                <text>4. URL http://127.0.0.1:8000/menu_items?Name=ProductName&AvaliableDate=AvaliableDate</text>
+            </p>
+            <p>
+                >   <a href="/menu_items/">Product Listing Page</a>
+            </p>
+        </div>
+   </body>
+</html>
+{% endblock %}
+
+

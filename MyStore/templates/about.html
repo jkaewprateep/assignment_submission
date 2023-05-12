@@ -1,0 +1,112 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<span>
+  <a href="{% url 'home' %}">Home</a> /
+  <a href="{% url 'menu' %}">Menu</a> /
+  <a href="{% url 'about' %}">about us</a> /
+</span>
+
+<section>
+    <article>
+      <h1>About Us</h1>
+      <!--Begin row-->
+      <div class="row">
+        <!--Begin col-->
+        <div class="column">
+          <p>
+            We are living in Bangkok City but part far from high-congession and 
+            department store and we are living our lives with friends and cats
+          </p>
+          <p>
+            A few days ago Echo she had borns 7 children to servive in the world
+            and we are adopted her because she had been abandons for serveral years
+          </p>
+  
+          <p>
+            She love her babies much until now they are all servive and healty, 
+            we can see she feed her baby and cuddles them much everyday
+          </p>
+  
+          <p>
+            When you are tied you looking at her and found she is very cute and 
+            she play comfortable roles walking to see good neightbours and she
+            tell them they are saved as she had a sitting spot everyday
+          </p>
+  
+          <p>
+            It is easy to found her during daytime but in the night time she went out
+            and help of the villages security, we found sometime she came back with some
+            dress and hood covers
+          </p>
+  
+          <p>
+            You can contact her and spare some food she love Thai Plathu fish very much and 
+            she love to give you as hug
+          </p>
+
+
+          <div></div>
+
+          <hr>
+          </hr>
+
+          <div>
+            <p><img src="{% static 'img/FlappyBirds_random.gif' %}"  /><img src="{% static 'img/Marios Bros.gif' %}"  /><img src="{% static 'img/Pixel Copter.gif' %}"  /><img src="{% static 'img/Pong Game.gif' %}"/></p>
+
+            
+            
+            
+            <p>
+              contact tel: <a href="tel:+66865498495">+66 865498495</a> 
+            </p>
+  
+            <p>
+              contact email: <a href="mailto:jkaewprateep@gmail.com">jkaewprateep@gmail.com</a>
+            </p>
+  
+            <p>
+              contact http: <a href="https://github.com/jkaewprateep">github.com/jkaewprateep</a>
+            </p>
+          </div>
+          
+
+          
+        </div>
+        <!--End col-->
+  
+        <!--Begin col-->
+        <div class="column">
+          <figure class="figure">
+            <img
+              src="{% static 'img/echo_with_her_children_20.jpg' %}"
+              alt="Mario and Adrian"
+            />
+            <figcaption class="figure-caption">
+              Echo and her children
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              src="{% static 'img/echo_with_her_daily_mission_20.jpg' %}"
+              alt="Mario and Adrian"
+            />
+            <figcaption class="figure-caption">
+              Echo and her daily mission
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              src="{% static 'img/echo_with_her_cover_mission_20.jpg' %}"
+              alt="Mario and Adrian"
+            />
+            <figcaption class="figure-caption">
+              Echo and her cover mission
+            </figcaption>
+          </figure>
+        </div>
+        <!--End col-->
+      </div>
+      <!--End row-->
+    </article>
+  </section>
+{% endblock %}
